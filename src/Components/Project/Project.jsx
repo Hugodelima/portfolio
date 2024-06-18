@@ -40,7 +40,7 @@ export default function Project() {
                 <h4 className="vertical-timeline-element-subtitle">{element.descricao}</h4>
                 <p>{element.tecnologias}</p>
                 <div className="tecnologias-imagens">
-                  {element.imagem_tecnologias.map((img, index) => (
+                  {element.imagem_tecnologias.map((img) => (
                     <img src={img} style={{ width: '50px', height: '50px', margin: '0 5px' }} />
                   ))}
                 </div>
