@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+body{
+    position: relative;
+}
+.container{
+    color: black;
+    width: 100vw;
+    min-height: 100vh;
+    transition: 0.5s;
+    background: linear-gradient(90deg, #fff, #7E7E7E);
+    
+}
+.container.dark{
+    color: white;
+    background: linear-gradient(90deg, #7E7E7E, #222121);
+    background: #7E7E7E;
+}
+
+.container a{
+    color: black;
+    transition: 0.5s;
+    
+}
+
+.container.dark a{
+    color: white;
+}
+
+@media(max-width: 900px){
+    .container.dark a{
+        color: black;
+    }
+}   
+
+a{
+    text-decoration: none;
+}

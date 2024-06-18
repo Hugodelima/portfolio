@@ -1,0 +1,41 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.aboutMe-menu > h1{
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+.aboutMe-menu-text{
+    display: flex;
+    justify-content: space-around;
+}
+.title-aboutMe {
+    text-align: center;
+}
+
+.aboutMe-left img{
+    width: 20rem;
+    margin: 1rem;
+    transform: scaleX(-1);
+}
+
+.aboutMe-right > p{
+    margin: 1rem;
+    max-width: 29rem;
+    font-size: 20px;
+    font-family: "Shantell Sans", cursive;
+    text-align: justify;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+@media (max-width: 700px){
+    .aboutMe-left img{
+        display: none;
+        margin: 0rem;
+    }
+    .aboutMe-menu-text{
+        display: flex;
+        justify-content: center;
+    }
+}

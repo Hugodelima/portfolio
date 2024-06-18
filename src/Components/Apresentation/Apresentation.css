@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Licorice&display=swap');
+.apresentation-menu{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(60deg, transparent 50%,#222121 50%);
+    height: 30rem;  
+}
+.apresentation-left-text > p{
+    font-size: 3rem;
+    font-family: "Bad Script", cursive;
+    font-style: normal;
+    max-width: 55%;
+}
+
+.apresentation-left button{
+    width: 100%;
+    border: none;
+    background-color: #222121;
+    color: #FFB500;
+    border-radius: 3rem 3% 3rem 3%;
+}
+
+.apresentation-left button > p{
+    text-align: center;
+    font-size: 4rem;
+    font-family: "Licorice", cursive;
+    font-style: normal;
+    font-weight:900;
+}
+
+@media (max-width: 1000px){
+    .apresentation-left{
+        margin: 1rem;
+    }
+    .apresentation-left-text > p{
+        font-weight:900;
+        font-size: 2.5rem;
+        max-width: 75%;
+    }
+    .apresentation-left button{
+        width: 100%;
+        border-radius: 3rem 3% 3rem 3%;
+    }
+    .apresentation-left button > p{
+        text-align: center;
+        font-size: 3rem;
+    }
+    .apresentation-right > img{
+        width: 90%;
+        float: right;
+    }
+    .apresentation-menu{
+        justify-content: space-around;
+        background: linear-gradient(80deg, transparent 50%,#222121 40%);
+    }
+}
+
+@media (max-width: 652px){
+    .apresentation-left-text > p{
+        font-size: 2rem;
+        max-width: 100%;
+    }
+    .apresentation-left button > p{
+        font-size: 3rem;
+    }
+    .apresentation-right > img{
+        display: none;
+    }
+    .apresentation-menu{
+        justify-content: center;
+        background: linear-gradient(80deg, transparent 50%,#222121 40%);
+    }
+}
