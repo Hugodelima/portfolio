@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './AboutMe.css';
 import brain from '../../assets/img/cerebro.png';
+import { FaArrowUp } from "react-icons/fa";
 
 export default function AboutMe() {
+
+  const [showButton, setShowButton] = useState(false);
+  const onScroll = () =>{
+    window.scrollY > 500 ? setShowButton(true) : setShowButton(false);
+  }
+
+  useEffect(() =>{
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  });
+  const scrollToTop = () =>{
+    window.scrollTo(0,0);
+  }
+
   return (
     <div  id='about-me' className='aboutMe-menu'>
       <h1 className='title-aboutMe'>Sobre mim</h1>
       <div className="aboutMe-menu-text">
         <div className="aboutMe-left">
-          <img src={brain} alt="" />
+          <img src={brain}/>
         </div>
         <div className='aboutMe-right'>
           <p>
@@ -19,6 +34,7 @@ export default function AboutMe() {
           </p>
         </div>
       </div>
+      <FaArrowUp className={showButton ? "showButton" : "hidden"} onClick={scrollToTop}></FaArrowUp>
     </div>
   )
 }
