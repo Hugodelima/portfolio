@@ -6,6 +6,6 @@ Uma das características que estou mais animado é a capacidade de alternar entr
 
 Além disso, estou feliz em anunciar que o formulário de contato em meu portfólio está totalmente funcional! Agora, os visitantes podem entrar em contato comigo facilmente, o que me ajuda a me conectar com mais pessoas e oportunidades.
 
-Sinta-se à vontade para conferir meu novo portfólio em [ portfolio-eta-blush.vercel.app ] e deixe seus comentários e sugestões. Estou ansioso para ouvir o que você achou!
+Sinta-se à vontade para conferir meu novo portfólio em [link do portfolio](https://portfolio-eta-blush.vercel.app/) e deixe seus comentários e sugestões. Estou ansioso para ouvir o que você achou!
 
 #React #Portfolio #WebDevelopment #NewBeginnings
