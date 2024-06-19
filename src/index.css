@@ -15,7 +15,7 @@ body{
     width: 100vw;
     min-height: 100vh;
     transition: 0.5s;
-    background: linear-gradient(90deg, #fff, #7E7E7E);
+    background: linear-gradient(90deg, #edeaea, #7e7e7e);
     
 }
 .container.dark{

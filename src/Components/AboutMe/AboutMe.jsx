@@ -30,7 +30,7 @@ export default function AboutMe() {
           Bem vindo ao meu portófolio! Meu nome é hugo e estou sempre pensando no meu desenvolvimento e me esforçando para aprimorar minhas habilidades e conhecimentos voltado para área do front-end.
           <br/>
           <br/>
-          Neste portófolio irei estar apresentando meus principais projetos que desenvolvi ao longo da faculdade e me desafiei a estar criando este site com react embora nunca tenha utilizando, enfim espero que goste!
+          Neste portófolio irei estar apresentando meus principais projetos que desenvolvi ao longo da faculdade, onde estou cursando análise e desenvolvimento de sistemas, na qual me desafiei a estar criando este site com react embora nunca tenha utilizando, enfim espero que goste!
           </p>
         </div>
       </div>
