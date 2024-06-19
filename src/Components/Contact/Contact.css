@@ -98,18 +98,18 @@
     border: none;
     border-radius: 5px;
     transition: 0.7s;
-    background: linear-gradient(to right, #000000 50%, #ffffff 50%);
+    background: linear-gradient(to right, #000000 50%, #e88b01 50%);
     border: 1px solid ;
     background-size: 201% 100%;
     background-position: right;
-    color: #000000;
+    color: #000000 !important;
     padding: 0.3rem;
     cursor: pointer;
 }
 
 .submitForm:hover{
     background-position: left;
-    color: #FFB500;
+    color: white !important;
     transition: 0.7s;
     border: 1px solid #FFB500;
 }

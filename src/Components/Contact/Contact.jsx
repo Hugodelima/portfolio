@@ -70,6 +70,18 @@ export default function Contact() {
   return (
     <div id='contact' className='contact-menu'>
       <h1>Contato</h1>
+      <ToastContainer 
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <form ref={form} className={`contact-form ${current_theme}`}>
         <label htmlFor="nome">Nome</label>
         <input type="text" id="nome" name="user_name" placeholder="Seu nome" required/>
@@ -81,18 +93,7 @@ export default function Contact() {
         <textarea name="message" id="assunto" cols="60" rows="10" placeholder="Assunto da mensagem" required></textarea><br/>
 
         <input type='submit' value="Enviar" className='submitForm' onClick={validateForm}></input>
-        <ToastContainer 
-          position="top-center"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-        />
+        
       </form>
     </div>
   )
