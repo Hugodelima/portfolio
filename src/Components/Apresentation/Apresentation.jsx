@@ -12,7 +12,7 @@ const Apresentation = () => {
                     Olá, eu sou Hugo Rodrigues
                 </p>
                 <button className='buttonApresentation'>
-                    <p>Desenvolver Front-End</p>
+                    <p>Desenvolver Full Stack</p>
                 </button>
             </div>
         </div>
