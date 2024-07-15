@@ -57,39 +57,6 @@ let timelineElements = [
         link_site: "https://boot-strap-beta.vercel.app/",
         link_codigo: "https://github.com/Hugodelima/BootStrap"
     },
-    {
-        id: 4,
-        data: "Setembro 25, 2023",
-        imagem_projeto: cronometro_logo,
-        titulo: "Cronômetro",
-        descricao: "Desenvolvi um cronômetro utilizando HTML, CSS e JavaScript, com um design bem simples. Este projeto inclui funcionalidades básicas como iniciar, parar e resetar o tempo. ",    
-        tecnologias: "Tecnologias usadas no projeto:",
-        imagem_tecnologias: [
-            html,
-            css,
-            java_script,
-            bootstrap
-        ],
-        link_site: "https://cronometro-mu-navy.vercel.app/",
-        link_codigo: "https://github.com/Hugodelima/Cronometro"
-    },
-    {
-        id: 5,
-        data: "Agosto 28, 2023",
-        imagem_projeto: imc_logo,
-        titulo: "Calculadora de IMC",
-        descricao: "Desenvolvi uma calculadora de IMC (Índice de Massa Corporal) utilizando HTML, CSS e JavaScript, seguindo uma abordagem simples e funcional. A interface permite aos usuários inserir seus dados (peso e altura) e calcular o IMC com um clique.",    
-        tecnologias: "Tecnologias usadas no projeto:",
-        imagem_tecnologias: [
-            html,
-            css,
-            java_script,
-            bootstrap
-        ],
-        link_site: "https://bmi-calculator-gamma-one.vercel.app/",
-        link_codigo: "https://github.com/Hugodelima/BMI_Calculator"
-    },
-   
 ];
 
 export default timelineElements;
