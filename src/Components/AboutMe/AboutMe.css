@@ -149,16 +149,17 @@
     background-color: #222;
     right: 5rem;
     bottom: 5rem;
-    font-size: 3.5rem;
+    font-size: 1.8rem;
     color: #FFB500;
     cursor: pointer;
     animation: slideLeft 0.5s;
     border-radius: 50%;
     z-index: 9999;
-    padding: 1rem;
+    padding: 0.5rem;
     border: none;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    padding: 1rem;
 }
 
 .showButton:hover {
