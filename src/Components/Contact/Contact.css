@@ -6,16 +6,6 @@
   align-items: center;
 }
 
-.contact-section.dark {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: #fff;
-}
-
-.contact-section.light {
-  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-  color: #222;
-}
-
 .contact-container {
   width: 100%;
   max-width: 1200px;

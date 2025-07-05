@@ -1,17 +1,7 @@
 .project-menu {
   padding: 4rem 2rem;
-  min-height: 100vh;
 }
 
-.project-menu.dark {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: #fff;
-}
-
-.project-menu.light {
-  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-  color: #222;
-}
 
 .project-main-title {
   text-align: center;
