@@ -1,54 +1,146 @@
-.project-menu > h1{
-    margin-top: 4rem;
-    margin-bottom: 2rem;
-    text-align: center;
+.project-menu {
+  padding: 4rem 2rem;
+  min-height: 100vh;
 }
 
-
-
-.buttons-projects-right{
-    float: right;
+.project-menu.dark {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
 }
 
-.buttons-projects button{
-    margin-top: 1rem;
-    width: 30%;
-    border: none;
-    border-radius: 5px;
-    transition: 0.7s;
-    background: linear-gradient(to right, #000000 50%, #ffffff 50%);
-    border: 1px solid ;
-    background-size: 201% 100%;
-    background-position: right;
-    color: #000000;
-    padding: 0.3rem;
-    cursor: pointer;
+.project-menu.light {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  color: #222;
 }
 
-.buttons-projects button:hover{
-    background-position: left;
-    color: #FFB500;
-    transition: 0.7s;
-    border: 1px solid #FFB500;
+.project-main-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
 }
 
-.buttons-projects button > p{
-    text-align: center;
-    font-size: 4rem;
-    font-family: "Licorice", cursive;
-    font-style: normal;
-    font-weight:900;
+.project-main-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: #FFB500;
+  border-radius: 2px;
 }
 
-.vertical-timeline-element-icon {
-    box-shadow: 0 0 0 4px #FFB500,inset 0 2px 0 rgba(0,0,0,.08),0 3px 0 4px rgba(0,0,0,.05) !important;
-    border: 1px solid black;
+.project-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
 }
 
-.vertical-timeline::before {
-    background: #FFB500 !important;
-    border: 1px solid rgb(0, 0, 0);
+.tab-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 181, 0, 0.2);
+  color: #FFB500;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-.date{
-    --text-color: #f0f0f0 !important;
+
+.tab-button.active {
+  background: #FFB500;
+  color: #000;
+}
+
+.tab-button:hover {
+  transform: translateY(-2px);
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.technologies-title {
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+}
+
+.technologies-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tech-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.tech-icon:hover {
+  transform: scale(1.2);
+}
+
+.buttons-projects {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+.project-button {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons-projects.dark .project-button {
+  background: rgba(255, 181, 0, 0.8);
+  color: #000;
+}
+
+.buttons-projects.light .project-button {
+  background: #FFB500;
+  color: #000;
+}
+
+.project-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 181, 0, 0.3);
+}
+
+.date {
+  color: inherit !important;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .project-main-title {
+    font-size: 2rem;
+  }
+  
+  .tab-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .buttons-projects {
+    flex-direction: column;
+  }
 }
