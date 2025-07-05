@@ -1,45 +1,73 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
 }
+
 html {
     scroll-behavior: smooth;
 }
-body{
+
+body {
     position: relative;
 }
-.container{
+
+.container {
     color: black;
     width: 100vw;
     min-height: 100vh;
     transition: 0.5s;
-    background: linear-gradient(90deg, #edeaea, #7e7e7e);
-    
-}
-.container.dark{
-    color: white;
-    background: linear-gradient(90deg, #7E7E7E, #222121);
-    background: #7E7E7E;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    overflow-x: hidden;
 }
 
-.container a{
+.container.dark {
+    color: white;
+    background: linear-gradient(135deg, #222121 0%, #3a3a3a 100%);
+}
+
+.container a {
     color: black;
     transition: 0.5s;
-    
 }
 
-.container.dark a{
+.container.dark a {
     color: white;
 }
 
-@media(max-width: 900px){
-    .container.dark a{
+@media (max-width: 900px) {
+    .container.dark a {
         color: black;
     }
-}   
+}
 
-a{
+a {
     text-decoration: none;
+}
+
+/* Novas variáveis e animações */
+:root {
+    --primary-color: #FFB500;
+    --secondary-color: #222121;
+    --accent-color: #ff6b00;
+    --text-light: #333;
+    --text-dark: #fff;
+    --transition-speed: 0.4s;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes shine {
+    0% { background-position: -500px; }
+    100% { background-position: 500px; }
 }

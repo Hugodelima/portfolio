@@ -1,98 +1,154 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-
-.aboutMe-menu > h1{
-    margin-top: 4rem;
-    margin-bottom: 2rem;
+.aboutMe-menu {
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
 }
-.aboutMe-menu-text{
-    display: flex;
-    justify-content: space-around;
-}
+
 .title-aboutMe {
-    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
 }
 
-.aboutMe-left img{
-    width: 20rem;
-    margin: 1rem;
-    transform: scaleX(-1);
+.title-aboutMe::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: #FFB500;
+    border-radius: 2px;
 }
 
-.aboutMe-right > p{
-    margin: 1rem;
-    max-width: 29rem;
-    font-size: 20px;
-    font-family: "Shantell Sans", cursive;
-    text-align: justify;
-    font-optical-sizing: auto;
-    font-style: normal;
+.container.dark .title-aboutMe::after {
+    background: #ffcb52;
 }
 
-@media (max-width: 700px){
-    .aboutMe-left img{
-        display: none;
-        margin: 0rem;
-    }
-    .aboutMe-menu-text{
-        display: flex;
-        justify-content: center;
-    }
+.aboutMe-menu-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.hidden{
-    display: none;
+.aboutMe-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
-.showButton{
+
+.aboutMe-left img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    animation: float 6s ease-in-out infinite;
+}
+
+.container.dark .aboutMe-left img {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.aboutMe-left img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.container.dark .aboutMe-left img:hover {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.aboutMe-right {
+    flex: 1;
+}
+
+.aboutMe-right > p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.container.dark .aboutMe-right > p {
+    color: #e0e0e0;
+}
+
+.aboutMe-right > p span {
+    color: #FFB500;
+    font-weight: 600;
+}
+
+/* Skills section */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.skill-item {
+    background: rgba(255, 181, 0, 0.1);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #FFB500;
+    border: 1px solid rgba(255, 181, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.container.dark .skill-item {
+    background: rgba(255, 181, 0, 0.05);
+    border: 1px solid rgba(255, 181, 0, 0.2);
+}
+
+.skill-item:hover {
+    background: rgba(255, 181, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Back to top button */
+.showButton {
     position: fixed;
-    background-color: rgb(0, 0, 0);
-    right: 5rem;
-    bottom: 5rem;
-    font-size: 5rem;
-    color: rgb(255, 115, 0);
-    cursor: pointer;
-    animation: slideLeft 1s;
+    right: 2rem;
+    bottom: 2rem;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #FFB500, #ff8c00);
+    color: white;
+    border: none;
     border-radius: 50%;
-    z-index: 9999999;
-    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255, 181, 0, 0.3);
+    z-index: 999;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
 }
 
-@keyframes slideLeft {
-    0%{
-        right: 0rem;
-        opacity: 0;
-    }
-    100%{
-        right: 5rem;
-        opacity: 100%;
-    }
+.showButton:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 181, 0, 0.4);
 }
 
-@media (max-width:1700px){
-    .showButton{
-        right: 1rem;
-        bottom: 4rem;
-        font-size: 4rem;
-        animation: slideLeft 1s;
-        border-radius: 50%;
-        padding: 0.5rem;
+@media (max-width: 900px) {
+    .aboutMe-menu-text {
+        flex-direction: column;
     }
-    
-    @keyframes slideLeft {
-        0%{
-            right: -2rem;
-            opacity: 0;
-        }
-        100%{
-            right: 1rem;
-            opacity: 100%;
-        }
+
+    .aboutMe-left, .aboutMe-right {
+        width: 100%;
     }
-    
-}
-@media (max-width:500px){
-    .showButton{
-        bottom: 1rem;
-        font-size: 3rem;
+
+    .aboutMe-right > p {
+        font-size: 1rem;
     }
 }

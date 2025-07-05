@@ -1,76 +1,132 @@
 @import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Licorice&display=swap');
-.apresentation-menu{
+
+.apresentation-menu {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: linear-gradient(60deg, transparent 50%,#222121 50%);
-    height: 30rem;  
+    background: linear-gradient(60deg, transparent 50%, #222121 50%);
+    height: 30rem;
+    position: relative;
+    overflow: hidden;
 }
-.apresentation-left-text > p{
+
+.apresentation-left-text > p {
     font-size: 3rem;
     font-family: "Bad Script", cursive;
     font-style: normal;
-    max-width: 55%;
+    max-width: 46%;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3s steps(30, end), blink-caret 0.5s step-end infinite;
+    border-right: 3px solid var(--primary-color);
 }
 
-.apresentation-left button{
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-color) }
+}
+
+.apresentation-left button {
     width: 100%;
     border: none;
     background-color: #222121;
     color: #FFB500;
     border-radius: 3rem 3% 3rem 3%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.apresentation-left button > p{
+.apresentation-left button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.apresentation-left button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: all 0.5s ease;
+}
+
+.apresentation-left button:hover::before {
+    left: 100%;
+}
+
+.apresentation-left button > p {
     text-align: center;
     font-size: 4rem;
     font-family: "Licorice", cursive;
     font-style: normal;
-    font-weight:900;
+    font-weight: 900;
+    position: relative;
 }
 
-@media (max-width: 1000px){
-    .apresentation-left{
+.apresentation-right > img {
+    max-width: 100%;
+    height: auto;
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+    transition: all 0.5s ease;
+}
+
+.apresentation-right > img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
+}
+
+@media (max-width: 1000px) {
+    .apresentation-left {
         margin: 1rem;
     }
-    .apresentation-left-text > p{
-        font-weight:900;
+    .apresentation-left-text > p {
+        font-weight: 900;
         font-size: 2.5rem;
-        max-width: 75%;
-        color: rgb(194, 101, 15) ;
+        max-width: 53%;
+        color: rgb(194, 101, 15);
     }
-    .apresentation-left button{
+    .apresentation-left button {
         width: 100%;
         border-radius: 3rem 3% 3rem 3%;
     }
-    .apresentation-left button > p{
+    .apresentation-left button > p {
         text-align: center;
         font-size: 3rem;
     }
-    .apresentation-right > img{
+    .apresentation-right > img {
         width: 90%;
         float: right;
     }
-    .apresentation-menu{
+    .apresentation-menu {
         justify-content: space-around;
-        background: linear-gradient(80deg, transparent 50%,#222121 40%);
+        background: linear-gradient(80deg, transparent 50%, #222121 40%);
     }
 }
 
-@media (max-width: 652px){
-    .apresentation-left-text > p{
-        font-size: 2rem;
-        max-width: 100%;
+@media (max-width: 952px) {
+    .apresentation-left-text > p {
+        font-size: 4rem;
+        max-width: 84%;
     }
-    .apresentation-left button > p{
+    .apresentation-left button > p {
         font-size: 3rem;
     }
-    .apresentation-right > img{
+    .apresentation-right > img {
         display: none;
     }
-    .apresentation-menu{
+    .apresentation-menu {
         justify-content: center;
-        background: linear-gradient(80deg, transparent 50%,#222121 40%);
+        background: linear-gradient(80deg, transparent 50%, #222121 40%);
     }
 }

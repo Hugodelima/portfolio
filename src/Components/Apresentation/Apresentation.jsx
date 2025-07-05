@@ -9,8 +9,7 @@ const Apresentation = () => {
             <div className='apresentation-left-text'>
 
                 <p>
-                    Olá, eu sou Hugo Rodrigues
-                </p>
+                    Hugo Lima</p>
                 <button className='buttonApresentation'>
                     <p>Desenvolver Full Stack</p>
                 </button>
