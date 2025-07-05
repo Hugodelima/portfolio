@@ -1,21 +1,20 @@
-import React, { useRef, useState, useEffect } from 'react'
-import './Contact.css'
+import React, { useRef, useState, useEffect } from 'react';
+import './Contact.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import emailjs from '@emailjs/browser';
 import { FaPaperPlane } from 'react-icons/fa';
+import translations from '../../translations';
 
-export default function Contact() {
+export default function Contact({ language }) {
   const [currentTheme, setCurrentTheme] = useState(localStorage.getItem('current_theme') || 'dark');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useRef();
 
-  // Observar mudanças no tema
   useEffect(() => {
     const handleStorageChange = () => {
       setCurrentTheme(localStorage.getItem('current_theme') || 'dark');
     };
-
     window.addEventListener('storage', handleStorageChange);
     return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
@@ -43,7 +42,7 @@ export default function Contact() {
   };
 
   const notifySuccess = () => {
-    toast.success('Mensagem enviada com sucesso!', {
+    toast.success(translations[language].contact.success, {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -56,7 +55,7 @@ export default function Contact() {
   };
 
   const notifyError = () => {
-    toast.error('Por favor, preencha todos os campos corretamente', {
+    toast.error(translations[language].contact.error, {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -80,46 +79,48 @@ export default function Contact() {
   return (
     <div id='contact' className={`contact-section ${currentTheme}`}>
       <div className="contact-container">
-        <h1 className="contact-title">Contato</h1>
-        <p className="contact-subtitle">Entre em contato para projetos ou oportunidades</p>
+        <h1 className="contact-title">{translations[language].contact.title}</h1>
+        <p className="contact-subtitle">{translations[language].contact.subtitle}</p>
         
         <form ref={form} className={`contact-form ${currentTheme}`} onSubmit={validateForm}>
           <div className="form-group">
-            <label htmlFor="nome">Nome</label>
+            <label htmlFor="nome">{translations[language].contact.form.name}</label>
             <input 
               type="text" 
               id="nome" 
               name="user_name" 
-              placeholder="Seu nome completo" 
+              placeholder={translations[language].contact.form.name} 
               required 
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="email">E-mail</label>
+            <label htmlFor="email">{translations[language].contact.form.email}</label>
             <input 
               type="email" 
               id="email" 
               name="user_email" 
-              placeholder="seu@email.com" 
+              placeholder={translations[language].contact.form.email} 
               required 
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="assunto">Mensagem</label>
+            <label htmlFor="assunto">{translations[language].contact.form.message}</label>
             <textarea 
               name="message" 
               id="assunto" 
-              placeholder="Descreva sua mensagem aqui..." 
+              placeholder={translations[language].contact.form.message} 
               required
             ></textarea>
           </div>
 
           <button type="submit" className="submit-btn" disabled={isSubmitting}>
-            {isSubmitting ? 'Enviando...' : (
+            {isSubmitting ? (
+              translations[language].contact.form.sending
+            ) : (
               <>
-                Enviar <FaPaperPlane className="send-icon" />
+                {translations[language].contact.form.submit} <FaPaperPlane className="send-icon" />
               </>
             )}
           </button>
@@ -139,5 +140,5 @@ export default function Contact() {
         theme={currentTheme}
       />
     </div>
-  )
+  );
 }

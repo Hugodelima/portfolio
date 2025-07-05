@@ -1,9 +1,8 @@
-import React from 'react'
-import './Footer.css'
-import logoLinkedin from '../../assets/img/linkedin_icon.png'
-import logoGitHub from '../../assets/img/git_icon_icon.png'
+import React from 'react';
+import './Footer.css';
+import translations from '../../translations';
 
-export default function Footer() {
+export default function Footer({ language }) {
   return (
     <div className='footer'>
       <div className='waves'>
@@ -13,15 +12,15 @@ export default function Footer() {
         <div className="wave" id='wave4'></div>
       </div>
       <div className='icon-footer'>
-        <a href="https://github.com/Hugodelima/Cold-Mart" target="_blank">
-          <i class="bi bi-linkedin"></i>
+        <a href="https://www.linkedin.com/in/hugo-de-lima" target="_blank" rel="noopener noreferrer">
+          <i className="bi bi-linkedin"></i>
         </a>
-        <a href="https://github.com/Hugodelima" target="_blank">
-          <i class="bi bi-github"></i>
+        <a href="https://github.com/Hugodelima" target="_blank" rel="noopener noreferrer">
+          <i className="bi bi-github"></i>
         </a>
       </div>
       
-      <p>Copyright ©2024;  Feito por Hugo</p>
+      <p>{translations[language].footer.copyright}</p>
     </div>
-  )
+  );
 }

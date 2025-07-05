@@ -15,7 +15,7 @@
     font-size: 3rem;
     font-family: "Bad Script", cursive;
     font-style: normal;
-    max-width: 46%;
+    max-width: 50%;
     overflow: hidden;
     white-space: nowrap;
     animation: typing 3s steps(30, end), blink-caret 0.5s step-end infinite;

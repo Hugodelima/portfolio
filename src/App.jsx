@@ -1,30 +1,29 @@
-import React, { useEffect, useState } from 'react'
-import Navbar from './Components/Navbar/Navbar'
-import Apresentation from './Components/Apresentation/Apresentation'
-import AboutMe from './Components/AboutMe/AboutMe'
-import Project from './Components/Project/Project'
-import Contact from './Components/Contact/Contact'
-import Footer from './Components/Footer/Footer'
+import React, { useState, useEffect } from 'react';
+import Navbar from './Components/Navbar/Navbar';
+import Apresentation from './Components/Apresentation/Apresentation';
+import AboutMe from './Components/AboutMe/AboutMe';
+import Project from './Components/Project/Project';
+import Contact from './Components/Contact/Contact';
+import Footer from './Components/Footer/Footer';
 
-const App = () => {
+function App() {
+  const [theme, setTheme] = useState(localStorage.getItem('current_theme') || 'dark');
+  const [language, setLanguage] = useState(localStorage.getItem('current_language') || 'pt');
 
-  const current_theme = localStorage.getItem('current_theme');
-  const [theme, setTheme] = useState(current_theme?current_theme : 'light');
-
-  useEffect(()=>{
-    localStorage.setItem('current_theme', theme);
-  },[theme])
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   return (
-    <div className={`container ${theme}`}>
-      <Navbar theme={theme} setTheme={setTheme}/>
-      <Apresentation theme={theme} setTheme={setTheme}/>
-      <AboutMe theme={theme} setTheme={setTheme}/>
-      <Project theme={theme} setTheme={setTheme}/>
-      <Contact theme={theme} setTheme={setTheme}/>
-      <Footer theme={theme} setTheme={setTheme}/>
+    <div className={`app ${theme}`}>
+      <Navbar theme={theme} setTheme={setTheme} language={language} setLanguage={setLanguage} />
+      <Apresentation language={language} />
+      <AboutMe language={language} />
+      <Project language={language} />
+      <Contact language={language} />
+      <Footer language={language} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
