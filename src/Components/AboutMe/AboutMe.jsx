@@ -1,41 +1,88 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import './AboutMe.css';
 import brain from '../../assets/img/cerebro.png';
 import { FaArrowUp } from "react-icons/fa";
 
 export default function AboutMe() {
-
   const [showButton, setShowButton] = useState(false);
-  const onScroll = () =>{
-    window.scrollY > 500 ? setShowButton(true) : setShowButton(false);
-  }
+  const current_theme = localStorage.getItem('current_theme');
+  
+  const onScroll = useCallback(() => {
+    const scrollPosition = window.scrollY;
+    setShowButton(scrollPosition > 400);
+  }, []);
 
-  useEffect(() =>{
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  });
-  const scrollToTop = () =>{
-    window.scrollTo(0,0);
-  }
+  useEffect(() => {
+    // Throttle da função de scroll para melhor performance
+    let ticking = false;
+    
+    const throttledScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          onScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", throttledScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener("scroll", throttledScroll);
+    };
+  }, [onScroll]);
+
+  const scrollToTop = useCallback(() => {
+    window.scrollTo({ 
+      top: 0, 
+      behavior: 'smooth' 
+    });
+  }, []);
+
+  // Função para lidar com teclas (acessibilidade)
+  const handleKeyDown = useCallback((event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      scrollToTop();
+    }
+  }, [scrollToTop]);
 
   return (
-    <div  id='about-me' className='aboutMe-menu'>
-      <h1 className='title-aboutMe'>Sobre mim</h1>
+    <div id='about-me' className='aboutMe-menu'>
+      <h1 className={`title-aboutMe ${current_theme}`}>Sobre mim</h1>
       <div className="aboutMe-menu-text">
         <div className="aboutMe-left">
-          <img src={brain}/>
+          <img 
+            src={brain} 
+            alt="Ilustração de cérebro representando desenvolvimento e criatividade" 
+            loading="lazy"
+          />
         </div>
         <div className='aboutMe-right'>
           <p>
-          Bem vindo ao meu portófolio! Meu nome é hugo e estou sempre pensando no meu desenvolvimento e me esforçando para aprimorar minhas habilidades e conhecimentos voltado para área do front-end.
-          <br/>
-          <br/>
-          Neste portófolio irei estar apresentando meus principais projetos que desenvolvi ao longo da faculdade, onde estou cursando análise e desenvolvimento de sistemas, na qual me desafiei a estar criando este site com react embora nunca tenha utilizando, enfim espero que goste!
+            Olá! Sou Hugo Lima, <strong>Desenvolvedor Full Stack</strong> com paixão por criar soluções digitais completas e eficientes.
+            <br/><br/>
+            Minha expertise abrange tanto o front-end quanto o back-end, permitindo-me construir aplicações web robustas desde a interface do usuário até a lógica de negócios e integração de banco de dados.
+            <br/><br/>
+            Atualmente cursando Análise e Desenvolvimento de Sistemas, mantenho-me constantemente atualizado com as últimas tecnologias e melhores práticas de desenvolvimento. Este portfólio apresenta meus projetos mais relevantes, demonstrando minha capacidade de resolver problemas complexos e entregar produtos de alta qualidade.
+            <br/><br/>
+            Estou sempre aberto a novos desafios e oportunidades para colaborar em projetos inovadores!
           </p>
         </div>
       </div>
-      <FaArrowUp className={showButton ? "showButton" : "hidden"} onClick={scrollToTop}></FaArrowUp>
+      
+      {/* Botão de scroll melhorado com melhor acessibilidade */}
+      <button
+        className={showButton ? "showButton" : "hidden"}
+        onClick={scrollToTop}
+        onKeyDown={handleKeyDown}
+        aria-label="Voltar ao topo da página"
+        title="Voltar ao topo"
+        type="button"
+      >
+        <FaArrowUp aria-hidden="true" />
+      </button>
     </div>
-  )
+  );
 }
-
