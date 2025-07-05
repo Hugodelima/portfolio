@@ -65,7 +65,7 @@ let timelineElements = [
     {
         id: 5,
         type: "backend",
-        data: "Junho 13, 2025",
+        data: "Junho 26, 2025",
         imagem_projeto: null,
         titulo: "API de Gerenciamento de Consultas Médicas",
         descricao: "API RESTful desenvolvida com Django REST Framework e PostgreSQL para a Lacrei Saúde. Gerencia profissionais de saúde e consultas médicas com CRUD completo e testes automatizados.",    
