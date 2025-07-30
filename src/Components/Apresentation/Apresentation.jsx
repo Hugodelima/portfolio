@@ -1,25 +1,28 @@
-import React from 'react';
+import React from 'react'
 import './Apresentation.css';
 import king from '../../assets/img/king.png';
-import translations from '../../translations';
 
-const Apresentation = ({ language }) => {
+const Apresentation = () => {
   return (
     <div id='home' className="apresentation-menu">
         <div className='apresentation-left'>
             <div className='apresentation-left-text'>
-                <p>{translations[language].home.title}</p>
+
+                <p>
+                    Hugo Lima</p>
                 <button className='buttonApresentation'>
-                    <p>{translations[language].home.subtitle}</p>
+                    <p>Mobile Developer</p>
                 </button>
             </div>
         </div>
 
         <div className='apresentation-right'>
-            <img src={king} alt="Illustration" />
+            <img src={king}  />
         </div>
+      
     </div>
-  );
-};
+  )
+}
 
-export default Apresentation;
+export default Apresentation
+

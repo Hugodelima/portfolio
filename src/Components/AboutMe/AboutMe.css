@@ -1,242 +1,288 @@
 @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+:root {
+  --light-bg: #f8f9fa;
+  --dark-bg: #222121;
+  --light-accent: #FFB500;
+  --dark-accent: #FFD700;
+  --light-text: #2c3e50;
+  --dark-text: #f0f0f0;
+  --light-card: #ffffff;
+  --dark-card: #2d2d2d;
+  --light-shadow: rgba(0, 0, 0, 0.1);
+  --dark-shadow: rgba(0, 0, 0, 0.3);
+  --light-button-bg: #343a40;
+  --dark-button-bg: #343a40;
+  --light-button-hover: #FF6B00;
+  --dark-button-hover: #FF9E00;
+  --brain-glow: drop-shadow(0 0 15px rgba(0, 225, 255, 0.7));
+}
+
 .aboutMe-menu {
-    padding: 4rem 2rem;
-    min-height: 100vh;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  transition: background-color 0.3s ease;
+}
+
+.aboutMe-menu.light {
+  background-color: var(--light-bg);
+}
+
+.aboutMe-menu.dark {
+  background-color: var(--dark-bg);
 }
 
 .aboutMe-menu > h1 {
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-    font-size: 3.5rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  font-size: 3.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 .title-aboutMe {
-    text-align: center;
-    position: relative;
+  text-align: center;
+  position: relative;
+}
+
+.title-aboutMe.light {
+  color: var(--light-text);
+}
+
+.title-aboutMe.dark {
+  color: var(--dark-text);
 }
 
 .title-aboutMe::after {
-    content: '';
-    display: block;
-    width: 100px;
-    height: 4px;
-    background: #FFB500;
-    margin: 1rem auto;
-    border-radius: 2px;
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  margin: 1rem auto;
+  border-radius: 2px;
+  background: var(--light-accent);
+  transition: background 0.3s ease;
+}
+
+.title-aboutMe.dark::after {
+  background: var(--dark-accent);
 }
 
 .aboutMe-menu-text {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 3rem;
 }
 
-/* Substitua a parte do .aboutMe-left img pelo seguinte código: */
 .aboutMe-left img {
-    width: 25rem;
-    margin: 1rem;
-    transform: scaleX(-1);
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
-    animation: floatBrain 6s ease-in-out infinite, pulse 4s ease-in-out infinite;
-    transition: all 0.5s ease;
+  width: 25rem;
+  margin: 1rem;
+  transform: scaleX(-1);
+  transition: all 0.5s ease;
+}
+
+.brain-img.light {
+  filter: drop-shadow(0 5px 15px var(--light-shadow));
+  animation: floatBrain 6s ease-in-out infinite, pulseLight 4s ease-in-out infinite;
+}
+
+.brain-img.dark {
+  filter: brightness(1.2) var(--brain-glow);
+  animation: floatBrain 6s ease-in-out infinite, pulseDark 4s ease-in-out infinite;
 }
 
 @keyframes floatBrain {
-    0% {
-        transform: scaleX(-1) translateY(0px) rotate(0deg);
-    }
-    50% {
-        transform: scaleX(-1) translateY(-20px) rotate(2deg);
-    }
-    100% {
-        transform: scaleX(-1) translateY(0px) rotate(0deg);
-    }
+  0%, 100% { transform: scaleX(-1) translateY(0) rotate(0); }
+  50% { transform: scaleX(-1) translateY(-20px) rotate(2deg); }
 }
 
-@keyframes pulse {
-    0% {
-        filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2)) brightness(100%);
-    }
-    50% {
-        filter: drop-shadow(0 10px 25px rgba(255, 107, 0, 0.3)) brightness(110%);
-    }
-    100% {
-        filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2)) brightness(100%);
-    }
+@keyframes pulseLight {
+  0%, 100% { filter: drop-shadow(0 5px 15px var(--light-shadow)) brightness(100%); }
+  50% { filter: drop-shadow(0 10px 25px rgba(255, 107, 0, 0.3)) brightness(110%); }
 }
 
-.aboutMe-left img {
-    animation: floatBrainHover 2s ease-in-out infinite, pulseHover 1.5s ease-in-out infinite;
-}
-
-@keyframes floatBrainHover {
-    0% {
-        transform: scaleX(-1.05) translateY(0px) rotate(0deg);
-    }
-    50% {
-        transform: scaleX(-1.05) translateY(-15px) rotate(3deg);
-    }
-    100% {
-        transform: scaleX(-1.05) translateY(0px) rotate(0deg);
-    }
-}
-
-@keyframes pulseHover {
-    0% {
-        filter: drop-shadow(0 10px 20px rgba(255, 107, 0, 0.3)) brightness(110%);
-    }
-    50% {
-        filter: drop-shadow(0 15px 30px rgba(255, 107, 0, 0.4)) brightness(120%);
-    }
-    100% {
-        filter: drop-shadow(0 10px 20px rgba(255, 107, 0, 0.3)) brightness(110%);
-    }
+@keyframes pulseDark {
+  0%, 100% { filter: brightness(1.2) var(--brain-glow) brightness(100%); }
+  50% { filter: brightness(1.3) drop-shadow(0 0 20px rgba(255, 215, 0, 0.9)) brightness(120%); }
 }
 
 .aboutMe-left img:hover {
-    transform: scaleX(-1.05) scaleY(1.05);
+  transform: scaleX(-1.05) scaleY(1.05);
 }
 
 .aboutMe-right {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    max-width: 35rem;
+  padding: 2rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  max-width: 35rem;
 }
 
-.aboutMe-right > p {
-    margin: 1rem;
-    font-size: 1.2rem;
-    font-family: "Shantell Sans", cursive;
-    text-align: justify;
-    line-height: 1.8;
-    color: #444;
+.aboutMe-right.light {
+  background: var(--light-card);
+  box-shadow: 0 10px 30px var(--light-shadow);
 }
 
-.aboutMe-right > p strong {
-    background: linear-gradient(45deg, #FF6B00, #FFB500);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 700;
-    position: relative;
+.aboutMe-right.dark {
+  background: var(--dark-card);
+  box-shadow: 0 10px 30px var(--dark-shadow);
 }
 
-.aboutMe-right > p strong::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(45deg, #FF6B00, #FFB500);
-    border-radius: 1px;
-    opacity: 0.3;
+.about-text{
+  margin: 1rem;
+  font-size: 1.2rem;
+  font-family: "Shantell Sans", cursive;
+  text-align: justify;
+  line-height: 1.8;
+  transition: color 0.3s ease;
+}
+
+.aboutMe-right.light .about-text {
+  color: #031c35;
+}
+
+.aboutMe-right.dark .about-text {
+  color: var(--dark-text);
+}
+
+.about-text strong {
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 700;
+  position: relative;
+  color: #000000; 
+}
+
+.aboutMe-right.light .about-text strong {
+  background: linear-gradient(45deg, #FF6B00, var(--light-accent));
+}
+
+.aboutMe-right.dark .about-text strong {
+  background: linear-gradient(45deg, #FF9E00, var(--dark-accent));
+}
+
+.about-text strong::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 1px;
+  opacity: 0.3;
+}
+
+.aboutMe-right.light .about-text strong::after {
+  background: linear-gradient(45deg, #FF6B00, var(--light-accent));
+}
+
+.aboutMe-right.dark .about-text strong::after {
+  background: linear-gradient(45deg, #FF9E00, var(--dark-accent));
+  opacity: 0.5;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .showButton {
-    position: fixed;
-    background-color: #222;
-    right: 5rem;
-    bottom: 5rem;
-    font-size: 1.8rem;
-    color: #FFB500;
-    cursor: pointer;
-    animation: slideLeft 0.5s;
-    border-radius: 50%;
-    z-index: 9999;
-    padding: 0.5rem;
-    border: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    padding: 1rem;
+  position: fixed;
+  right: 5rem;
+  bottom: 5rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+  animation: slideLeft 0.5s;
+  border-radius: 50%;
+  z-index: 9999;
+  padding: 1rem;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showButton.light {
+  background-color: var(--light-button-bg);
+  color: var(--light-accent);
+}
+
+.showButton.dark {
+  background-color: var(--dark-button-bg);
+  color: var(--dark-accent);
 }
 
 .showButton:hover {
-    background-color: #FF6B00;
-    color: white;
-    transform: translateY(-5px);
+  background-color: var(--light-button-hover);
+  color: white;
+  transform: translateY(-5px);
 }
 
 @keyframes slideLeft {
-    0% {
-        right: -5rem;
-        opacity: 0;
-    }
-    100% {
-        right: 5rem;
-        opacity: 1;
-    }
+  from { right: -5rem; opacity: 0; }
+  to { right: 5rem; opacity: 1; }
 }
 
 @media (max-width: 1000px) {
-    .aboutMe-menu-text {
-        flex-direction: column;
-        padding: 0 2rem;
-    }
-    
-    .aboutMe-left img {
-        width: 20rem;
-    }
-    
-    .aboutMe-right {
-        max-width: 100%;
-    }
+  .aboutMe-menu-text {
+    flex-direction: column;
+    padding: 0 2rem;
+  }
+  
+  .aboutMe-left img {
+    width: 20rem;
+  }
+  
+  .aboutMe-right {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 700px) {
-    .aboutMe-menu > h1 {
-        font-size: 2.5rem;
-    }
-    
-    .aboutMe-left img {
-        width: 15rem;
-    }
-    
-    .aboutMe-right > p {
-        font-size: 1.1rem;
-    }
-    
-    .showButton {
-        right: 2rem;
-        bottom: 2rem;
-        font-size: 2rem;
-        padding: 0.8rem;
-    }
-    
-    @keyframes slideLeft {
-        0% {
-            right: -5rem;
-            opacity: 0;
-        }
-        100% {
-            right: 2rem;
-            opacity: 1;
-        }
-    }
+  .aboutMe-menu > h1 {
+    font-size: 2.5rem;
+  }
+  
+  .aboutMe-left img {
+    width: 15rem;
+  }
+  
+  .about-text {
+    font-size: 1.1rem;
+  }
+  
+  .showButton {
+    right: 2rem;
+    bottom: 2rem;
+    font-size: 1.5rem;
+    padding: 0.8rem;
+  }
+  
+  @keyframes slideLeft {
+    to { right: 2rem; }
+  }
 }
 
 @media (max-width: 500px) {
-    .aboutMe-menu {
-        padding: 3rem 1rem;
-    }
-    
-    .aboutMe-left img {
-        width: 12rem;
-    }
-    
-    .aboutMe-right > p {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
+  .aboutMe-menu {
+    padding: 3rem 1rem;
+  }
+  
+  .aboutMe-left img {
+    width: 12rem;
+  }
+  
+  .about-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0.5rem;
+  }
+  
+  .showButton {
+    right: 1.5rem;
+    bottom: 1.5rem;
+    padding: 0.7rem;
+  }
 }

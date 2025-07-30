@@ -15,7 +15,7 @@
     font-size: 3rem;
     font-family: "Bad Script", cursive;
     font-style: normal;
-    max-width: 50%;
+    max-width: 58%;
     overflow: hidden;
     white-space: nowrap;
     animation: typing 3s steps(30, end), blink-caret 0.5s step-end infinite;
@@ -93,7 +93,7 @@
     .apresentation-left-text > p {
         font-weight: 900;
         font-size: 2.5rem;
-        max-width: 53%;
+        max-width: 68%;
         color: rgb(194, 101, 15);
     }
     .apresentation-left button {
@@ -117,7 +117,7 @@
 @media (max-width: 952px) {
     .apresentation-left-text > p {
         font-size: 4rem;
-        max-width: 84%;
+        max-width: 99%;
     }
     .apresentation-left button > p {
         font-size: 3rem;

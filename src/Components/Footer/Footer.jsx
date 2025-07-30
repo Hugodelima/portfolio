@@ -2,9 +2,9 @@ import React from 'react';
 import './Footer.css';
 import translations from '../../translations';
 
-export default function Footer({ language }) {
+export default function Footer({ language, theme }) {
   return (
-    <div className='footer'>
+    <div className={`footer ${theme}`}>
       <div className='waves'>
         <div className="wave" id='wave1'></div>
         <div className="wave" id='wave2'></div>

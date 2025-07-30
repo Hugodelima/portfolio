@@ -1,91 +1,140 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Licorice&display=swap');
-.footer{
-    margin-top: 13rem;
-    padding: 2.5rem 0rem;
-    text-align: center;
-    align-items: center;
-    background-color: #282323;
-}
-.footer p{
-    font-family: "Licorice", cursive;
-    font-style: normal;
-    font-weight:900;
-    font-size: 1.5rem;
-    color: white !important;
+
+:root {
+  --light-bg: #f8f9fa;
+  --dark-bg: #222121;
+  --light-accent: #FFB500;
+  --dark-accent: #FFD700;
+  --light-text: #2c3e50;
+  --dark-text: #f0f0f0;
+  --light-card: #ffffff;
+  --dark-card: #2d2d2d;
 }
 
-.wave{
+.footer {
+    padding: 6rem 0rem 0rem 0rem;
+    text-align: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.footer.light {
+    background-color: var(--light-card);
+}
+
+.footer.dark {
+    background-color: var(--dark-bg);
+}
+
+.footer p {
+    font-family: "Licorice", cursive;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer.light p {
+    color: var(--light-text) !important;
+}
+
+.footer.dark p {
+    color: var(--dark-text) !important;
+}
+
+.wave {
     position: absolute;
     bottom: 185px;
     width: 100%;
     height: 100px;
     background-image: url("../../assets/img/wave.png");
     background-size: 1000px 100px;
+    transition: filter 0.3s ease;
+}
+
+.footer.light .wave {
+    filter: hue-rotate(0deg) brightness(1.2);
+}
+
+.footer.dark .wave {
     filter: hue-rotate(178deg);
 }
 
-.wave#wave1{
+.wave#wave1 {
     z-index: 1000;
     opacity: 1;
     animation: animateWave 4s linear infinite;
 }
 
-.wave#wave2{
+.wave#wave2 {
     z-index: 999;
-    opacity: 0.5s;
+    opacity: 0.5;
     animation: animateWave_02 4s linear infinite;
 }
-.wave#wave3{
+
+.wave#wave3 {
     z-index: 1000;
-    opacity: 0.2s;
+    opacity: 0.2;
     animation: animateWave 4s linear infinite;
 }
 
-.wave#wave4{
+.wave#wave4 {
     z-index: 999;
-    opacity: 0.7s;
+    opacity: 0.7;
     animation: animateWave_02 4s linear infinite;
 }
+
 @keyframes animateWave {
-    0%{
+    0% {
         background-position-x: 1000px;
     }
-    100%{
+    100% {
         background-position-x: 0px;
     }
 }
 
 @keyframes animateWave_02 {
-    0%{
+    0% {
         background-position-x: 0px;
     }
-    100%{
+    100% {
         background-position-x: 1000px;
     }
 }
 
-.icon-footer > a > i{
+.icon-footer > a > i {
     font-size: 4rem;
-    transition: 0.5s;
-    color: white;
+    transition: all 0.5s;
 }
 
-.bi.bi-linkedin:hover{  
-    color: #0e76a8;
-    transition: 0.5s;
+.footer.light .icon-footer > a > i {
+    color: var(--light-text);
 }
 
-.bi.bi-github:hover{
-    color: #000000;
+.footer.dark .icon-footer > a > i {
+    color: var(--dark-text);
 }
 
-.icon-footer>a{
+.bi.bi-linkedin:hover {  
+    color: #0e76a8 !important;
+    transform: translateY(-5px);
+}
+
+.bi.bi-github:hover {
+    color: #000000 !important;
+    transform: translateY(-5px);
+}
+
+.footer.dark .bi.bi-github:hover {
+    color: #ffffff !important;
+}
+
+.icon-footer > a {
     margin: 2rem;
 }
 
-
-.footer-text{
+.footer-text {
     display: flex;
     gap: 1rem;
 }

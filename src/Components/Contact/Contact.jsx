@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import './Contact.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -6,18 +6,9 @@ import emailjs from '@emailjs/browser';
 import { FaPaperPlane } from 'react-icons/fa';
 import translations from '../../translations';
 
-export default function Contact({ language }) {
-  const [currentTheme, setCurrentTheme] = useState(localStorage.getItem('current_theme') || 'dark');
+export default function Contact({ language, theme }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useRef();
-
-  useEffect(() => {
-    const handleStorageChange = () => {
-      setCurrentTheme(localStorage.getItem('current_theme') || 'dark');
-    };
-    window.addEventListener('storage', handleStorageChange);
-    return () => window.removeEventListener('storage', handleStorageChange);
-  }, []);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -50,7 +41,7 @@ export default function Contact({ language }) {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: currentTheme,
+      theme: theme,
     });
   };
 
@@ -63,7 +54,7 @@ export default function Contact({ language }) {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: currentTheme,
+      theme: theme,
     });
   };
 
@@ -77,12 +68,12 @@ export default function Contact({ language }) {
   };
 
   return (
-    <div id='contact' className={`contact-section ${currentTheme}`}>
+    <div id='contact' className={`contact-section ${theme}`}>
       <div className="contact-container">
-        <h1 className="contact-title">{translations[language].contact.title}</h1>
-        <p className="contact-subtitle">{translations[language].contact.subtitle}</p>
+        <h1 className={`contact-title ${theme}`}>{translations[language].contact.title}</h1>
+        <p className={`contact-subtitle ${theme}`}>{translations[language].contact.subtitle}</p>
         
-        <form ref={form} className={`contact-form ${currentTheme}`} onSubmit={validateForm}>
+        <form ref={form} className={`contact-form ${theme}`} onSubmit={validateForm}>
           <div className="form-group">
             <label htmlFor="nome">{translations[language].contact.form.name}</label>
             <input 
@@ -137,7 +128,7 @@ export default function Contact({ language }) {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme={currentTheme}
+        theme={theme}
       />
     </div>
   );

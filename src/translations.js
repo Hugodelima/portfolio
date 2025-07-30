@@ -2,23 +2,26 @@ export default {
   pt: {
     home: {
       title: "Hugo Lima",
-      subtitle: "Desenvolvedor Full Stack"
+      subtitle: "Desenvolvedor Mobile"
     },
     about: {
       title: "Sobre mim",
-      content: `Olá! Sou Hugo Lima, <strong>Desenvolvedor Full Stack</strong> com paixão por criar soluções digitais completas e eficientes.
+      content: `Olá! Sou Hugo Lima, <strong>Desenvolvedor Mobile especializado em React Native</strong> com experiência em criar aplicativos multiplataforma de alta qualidade.
       <br/><br/>
-      Minha expertise abrange tanto o front-end quanto o back-end, permitindo-me construir aplicações web robustas desde a interface do usuário até a lógica de negócios e integração de banco de dados.
+      Minha expertise está no desenvolvimento de aplicativos móveis performáticos e intuitivos, desde a concepção da interface do usuário até a integração com APIs e bancos de dados.
       <br/><br/>
-      Atualmente cursando Análise e Desenvolvimento de Sistemas, mantenho-me constantemente atualizado com as últimas tecnologias e melhores práticas de desenvolvimento. Este portfólio apresenta meus projetos mais relevantes, demonstrando minha capacidade de resolver problemas complexos e entregar produtos de alta qualidade.
+      Como tecnólogo em Análise e Desenvolvimento de Sistemas pelo IFMS, dedico-me a criar soluções mobile que oferecem excelente experiência do usuário. Este portfólio apresenta meus principais projetos mobile, demonstrando minha capacidade de resolver desafios específicos do ecossistema móvel.
       <br/><br/>
-      Estou sempre aberto a novos desafios e oportunidades para colaborar em projetos inovadores!`
+      Estou sempre em busca de novos desafios para criar aplicativos móveis inovadores e funcionais!`
     },
     projects: {
       title: "Meus Projetos",
       frontend: "Front-end",
+      mobile: 'Mobile',
       backend: "Back-end",
-      technologies: "Tecnologias usadas:"
+      technologies: "Tecnologias usadas:",
+      website: "Site",  // Added this line
+      code: "Código"    // Added this line
     },
     contact: {
       title: "Contato",
@@ -40,23 +43,26 @@ export default {
   en: {
     home: {
       title: "Hugo Lima",
-      subtitle: "Full Stack Developer"
+      subtitle: "Mobile Developer"
     },
     about: {
       title: "About me",
-      content: `Hello! I'm Hugo Lima, a <strong>Full Stack Developer</strong> passionate about creating complete and efficient digital solutions.
+      content: `Hello! I'm Hugo Lima, a <strong>Mobile Developer specialized in React Native</strong> with experience in building high-quality cross-platform apps.
       <br/><br/>
-      My expertise covers both front-end and back-end, allowing me to build robust web applications from user interface to business logic and database integration.
+      My expertise lies in developing performant and intuitive mobile applications, from user interface design to API and database integration.
       <br/><br/>
-      Currently studying Systems Analysis and Development, I constantly keep myself updated with the latest technologies and best development practices. This portfolio showcases my most relevant projects, demonstrating my ability to solve complex problems and deliver high-quality products.
+      As a Systems Analysis and Development technologist from IFMS, I'm dedicated to creating mobile solutions that deliver excellent user experience. This portfolio showcases my main mobile projects, demonstrating my ability to solve specific mobile ecosystem challenges.
       <br/><br/>
-      I'm always open to new challenges and opportunities to collaborate on innovative projects!`
+      I'm always looking for new challenges to create innovative and functional mobile apps!`
     },
     projects: {
       title: "My Projects",
       frontend: "Front-end",
+      mobile: 'Mobile',
       backend: "Back-end",
-      technologies: "Technologies used:"
+      technologies: "Technologies used:",
+      website: "Website",  // Added this line
+      code: "Code"        // Added this line
     },
     contact: {
       title: "Contact",

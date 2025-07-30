@@ -1,38 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Project.css';
 import timelineElements from '../../../data/timelineElements';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import "react-vertical-timeline-component/style.min.css";
 import translations from '../../translations';
 
-export default function Project({ language }) {
-  const [currentTheme, setCurrentTheme] = useState(localStorage.getItem('current_theme') || 'dark');
+export default function Project({ language, theme }) {
   const [activeTab, setActiveTab] = useState('frontend');
 
   const frontendProjects = timelineElements.filter(project => project.type === 'frontend');
   const backendProjects = timelineElements.filter(project => project.type === 'backend');
-
-  useEffect(() => {
-    const handleStorageChange = () => {
-      setCurrentTheme(localStorage.getItem('current_theme') || 'dark');
-    };
-    window.addEventListener('storage', handleStorageChange);
-    return () => window.removeEventListener('storage', handleStorageChange);
-  }, []);
-
+  const mobileProjects = timelineElements.filter(project => project.type === 'mobile');
+  console.log(translations[language])
   const renderProjects = (projects) => {
     return projects.map(element => (
       <VerticalTimelineElement
         key={element.id}
         date={element.data[language]}
-        dateClassName='date'
+        dateClassName={`date ${theme}`}
         contentStyle={{
-          background: currentTheme === 'dark' ? '#000' : '#fff',
-          color: currentTheme === 'dark' ? '#fff' : '#000',
-          boxShadow: '0 0px 0 #ddd'
+          background: theme === 'dark' ? '#2d2d2d' : '#fff',
+          color: theme === 'dark' ? '#f0f0f0' : '#333',
+          boxShadow: `0 4px 8px ${theme === 'dark' ? 'rgba(0,0,0,0.3)' : 'rgba(0,0,0,0.1)'}`,
+          borderRadius: '8px'
         }}
         contentArrowStyle={{
-          borderRight: `7px solid ${currentTheme === 'dark' ? '#000' : '#fff'}`
+          borderRight: `7px solid ${theme === 'dark' ? '#2d2d2d' : '#fff'}`
         }}
         iconStyle={{
           background: '#FFB500',
@@ -52,17 +45,17 @@ export default function Project({ language }) {
             <img key={index} src={img} alt="Technology icon" className="tech-icon" />
           ))}
         </div>
-        <div className={`buttons-projects ${currentTheme}`}>
+        <div className={`buttons-projects ${theme}`}>
           {element.link_site && (
-            <a href={element.link_site} target="_blank" rel="noopener noreferrer">
+            <a href={element.link_site} target="_blank" rel="noopener noreferrer" className="project-button-link">
               <button className='project-button'>
-                {language === 'pt' ? 'Site' : 'Website'}
+                {translations[language].projects.website}
               </button>
             </a>
           )}
-          <a href={element.link_codigo} target="_blank" rel="noopener noreferrer">
+          <a href={element.link_codigo} target="_blank" rel="noopener noreferrer" className="project-button-link">
             <button className='project-button'>
-              {language === 'pt' ? 'Código' : 'Code'}
+              {translations[language].projects.code}
             </button>
           </a>
         </div>
@@ -71,18 +64,25 @@ export default function Project({ language }) {
   };
 
   return (
-    <div id='project' className={`project-menu ${currentTheme}`}>
-      <h1 className="project-main-title">{translations[language].projects.title}</h1>
+    <div id='project' className={`project-menu ${theme}`}>
+      <h1 className={`project-main-title ${theme}`}>{translations[language].projects.title}</h1>
       
       <div className="project-tabs">
         <button 
-          className={`tab-button ${activeTab === 'frontend' ? 'active' : ''}`}
+          className={`tab-button ${theme} ${activeTab === 'frontend' ? 'active' : ''}`}
           onClick={() => setActiveTab('frontend')}
         >
           {translations[language].projects.frontend}
         </button>
+
         <button 
-          className={`tab-button ${activeTab === 'backend' ? 'active' : ''}`}
+          className={`tab-button ${theme} ${activeTab === 'mobile' ? 'active' : ''}`}
+          onClick={() => setActiveTab('mobile')}
+        >
+          {translations[language].projects.mobile}
+        </button>
+        <button 
+          className={`tab-button ${theme} ${activeTab === 'backend' ? 'active' : ''}`}
           onClick={() => setActiveTab('backend')}
         >
           {translations[language].projects.backend}
@@ -90,7 +90,9 @@ export default function Project({ language }) {
       </div>
 
       <VerticalTimeline>
-        {activeTab === 'frontend' ? renderProjects(frontendProjects) : renderProjects(backendProjects)}
+        {activeTab === 'frontend' ? renderProjects(frontendProjects) : 
+         activeTab === 'backend' ? renderProjects(backendProjects) : 
+         renderProjects(mobileProjects)}
       </VerticalTimeline>
     </div>
   );

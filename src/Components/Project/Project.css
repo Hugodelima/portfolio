@@ -1,13 +1,45 @@
-.project-menu {
-  padding: 4rem 2rem;
+:root {
+  --light-bg: #f8f9fa;
+  --dark-bg: #222121;
+  --light-accent: #FFB500;
+  --dark-accent: #FFD700;
+  --light-text: #2c3e50;
+  --dark-text: #f0f0f0;
+  --light-card: #ffffff;
+  --dark-card: #2d2d2d;
+  --light-shadow: rgba(0, 0, 0, 0.1);
+  --dark-shadow: rgba(0, 0, 0, 0.3);
+  --light-tab-bg: rgba(255, 181, 0, 0.2);
+  --dark-tab-bg: rgba(255, 215, 0, 0.2);
 }
 
+.project-menu {
+  padding: 4rem 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.project-menu.light {
+  background-color: var(--light-bg);
+}
+
+.project-menu.dark {
+  background-color: var(--dark-bg);
+}
 
 .project-main-title {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 2rem;
   position: relative;
+  transition: color 0.3s ease;
+}
+
+.project-main-title.light {
+  color: var(--light-text);
+}
+
+.project-main-title.dark {
+  color: var(--dark-text);
 }
 
 .project-main-title::after {
@@ -18,8 +50,16 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: #FFB500;
   border-radius: 2px;
+  transition: background 0.3s ease;
+}
+
+.project-main-title.light::after {
+  background: var(--light-accent);
+}
+
+.project-main-title.dark::after {
+  background: var(--dark-accent);
 }
 
 .project-tabs {
@@ -27,21 +67,35 @@
   justify-content: center;
   margin-bottom: 2rem;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .tab-button {
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 8px;
-  background: rgba(255, 181, 0, 0.2);
-  color: #FFB500;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.tab-button.active {
-  background: #FFB500;
+.tab-button.light {
+  background: var(--light-tab-bg);
+  color: var(--light-accent);
+}
+
+.tab-button.dark {
+  background: var(--dark-tab-bg);
+  color: var(--dark-accent);
+}
+
+.tab-button.active.light {
+  background: var(--light-accent);
+  color: #000;
+}
+
+.tab-button.active.dark {
+  background: var(--dark-accent);
   color: #000;
 }
 
@@ -54,12 +108,18 @@
   height: auto;
   border-radius: 8px;
   margin: 1rem 0;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px var(--light-shadow);
+  transition: all 0.3s ease;
+}
+
+.project-menu.dark .project-image {
+  box-shadow: 0 4px 8px var(--dark-shadow);
 }
 
 .technologies-title {
   font-weight: 600;
   margin: 1rem 0 0.5rem;
+  color: inherit;
 }
 
 .technologies-images {
@@ -87,8 +147,13 @@
   gap: 1rem;
 }
 
-.project-button {
+.project-button-link {
   flex: 1;
+  text-decoration: none;
+}
+
+.project-button {
+  width: 100%;
   padding: 0.75rem;
   border: none;
   border-radius: 8px;
@@ -98,16 +163,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--light-accent);
+  color: #000;
 }
 
 .buttons-projects.dark .project-button {
-  background: rgba(255, 181, 0, 0.8);
-  color: #000;
-}
-
-.buttons-projects.light .project-button {
-  background: #FFB500;
-  color: #000;
+  background: var(--dark-accent);
 }
 
 .project-button:hover {
@@ -116,8 +177,16 @@
 }
 
 .date {
-  color: inherit !important;
   opacity: 0.8;
+  transition: color 0.3s ease;
+}
+
+.date.light {
+  color: var(--light-text);
+}
+
+.date.dark {
+  color: var(--dark-text);
 }
 
 @media (max-width: 768px) {
@@ -133,4 +202,18 @@
   .buttons-projects {
     flex-direction: column;
   }
+}
+
+/* Vertical Timeline adjustments */
+.vertical-timeline::before {
+  background: var(--light-accent) !important;
+}
+
+.project-menu.dark .vertical-timeline::before {
+  background: var(--dark-accent) !important;
+}
+
+.vertical-timeline-element-title,
+.vertical-timeline-element-subtitle {
+  color: inherit !important;
 }

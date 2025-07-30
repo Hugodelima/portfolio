@@ -115,6 +115,31 @@ let timelineElements = [
         link_site: "https://lacrei-api.onrender.com/api",
         link_codigo: "https://github.com/Hugodelima/Desafio_Tecnico_Back-end_na_Lacrei_Saude"
     },
+    {
+        id: 6,
+        type: "mobile",
+        data: {
+            pt: "Dezembro 15, 2024",
+            en: "December 15, 2024"
+        },
+        imagem_projeto: "https://github.com/Hugodelima/Foap-App/raw/main/assets/foap-logo.png",
+        titulo: {
+            pt: "Foap - Transformando Tarefas em Conquistas",
+            en: "Foap - Turning Tasks into Achievements"
+        },
+        descricao: {
+            pt: "Aplicativo mobile gamificado que transforma tarefas cotidianas em missões com recompensas, penalidades e progresso visual. Desenvolvido como TCC no IFMS com React Native, Node.js e PostgreSQL.",
+            en: "Gamified mobile app that turns daily tasks into missions with rewards, penalties and visual progress. Developed as final project at IFMS with React Native, Node.js and PostgreSQL."
+        },
+        imagem_tecnologias: [
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+        ],
+        link_site: "https://www.youtube.com/watch?v=[video-demo]",
+        link_codigo: "https://github.com/Hugodelima/foap"
+    }
 ];
 
 export default timelineElements;
