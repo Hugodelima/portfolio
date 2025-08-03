@@ -6,6 +6,7 @@ import bootstrap from "../src/assets/img/bootstrap.png";
 import cold_mart_logo from "../src/assets/img/cold_mart.jpeg";
 import shoping_logo from "../src/assets/img/shoping.png";
 import meteora_logo from "../src/assets/img/meteora.png";
+import foap_image from "../src/assets/img/foap.jpeg"
 
 let timelineElements = [
     {
@@ -122,7 +123,8 @@ let timelineElements = [
             pt: "Dezembro 15, 2024",
             en: "December 15, 2024"
         },
-        imagem_projeto: "https://github.com/Hugodelima/Foap-App/raw/main/assets/foap-logo.png",
+        imagem_projeto: foap_image
+        ,
         titulo: {
             pt: "Foap - Transformando Tarefas em Conquistas",
             en: "Foap - Turning Tasks into Achievements"
