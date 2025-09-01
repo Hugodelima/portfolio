@@ -139,7 +139,7 @@ let timelineElements = [
             "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
             "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
         ],
-        link_site: "https://www.youtube.com/watch?v=[video-demo]",
+        link_site: "https://play.google.com/store/apps/details?id=com.hizup.foap",
         link_codigo: "https://github.com/Hugodelima/foap"
     }
 ];
